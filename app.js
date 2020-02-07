@@ -84,6 +84,15 @@ app.post(
   }
 );
 
+app.get("/api/v1/users", (req, res, next) => {
+  res.status(200).send({
+    users: [
+      { userId: 1, firstName: "John", lastName: "Wick", age: 45 },
+      { userId: 2, firstName: "Kasra", lastName: "Mp", age: 30 }
+    ]
+  });
+});
+
 app.listen(PORT, () => {
   console.log("Server has started");
 });
