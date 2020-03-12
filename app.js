@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import { restart } from "nodemon";
 import config from "./config";
 import store from "./store";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "./swagger/swagger.json";
 
 const PORT = config.web.port;
 const app = express();
@@ -14,6 +16,8 @@ app.use(
     extended: true
   })
 );
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use("/api/v1/users/:id", function(req, res, next) {
   if (req.params.hasOwnProperty("id") && !isNaN(parseInt(req.params.id))) {
