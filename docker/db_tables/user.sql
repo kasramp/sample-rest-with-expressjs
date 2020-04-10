@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS users (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(512) NOT NULL,
   last_name VARCHAR(512) NOT NULL,
-  age INTEGER
+  age INTEGER NOT NULL,
 ) engine=InnoDB;
 
 
